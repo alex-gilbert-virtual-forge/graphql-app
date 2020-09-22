@@ -17,7 +17,7 @@ const Rockets = () => {
   const { loading, error, data } = useQuery(ROCKETS_QUERY);
 
   if (loading) return <p>Loading...</p>;
-  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
 
   return (
     <Fragment>
