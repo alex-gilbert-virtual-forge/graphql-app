@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useQuery, gql } from '@apollo/client';
+
+import { Grid, GridItem, Title, Text } from '../componets/layout/layout.styles';
 
 const ROCKETS_QUERY = gql`
   query RocketsQuery {
@@ -15,15 +17,22 @@ const Rockets = () => {
   const { loading, error, data } = useQuery(ROCKETS_QUERY);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <p>Loading...</p>;
 
-  return data.rockets.map(({ rocket_id, rocket_name, rocket_type }) => (
-    <div key={rocket_id}>
-      <p>
-        {rocket_name}: {rocket_type}
-      </p>
-    </div>
-  ));
+  return (
+    <Fragment>
+      <Title>Rockets</Title>
+      <Grid>
+        {data.rockets.map(({ rocket_id, rocket_name, rocket_type }) => (
+          <GridItem key={rocket_id}>
+            <Text>
+              {rocket_name} : {rocket_type}
+            </Text>
+          </GridItem>
+        ))}
+      </Grid>
+    </Fragment>
+  );
 };
 
 export default Rockets;

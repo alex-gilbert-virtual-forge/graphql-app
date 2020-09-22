@@ -33,11 +33,6 @@
       "static/chunks/main.js",
       "static/chunks/webpack.js",
       "static/chunks/pages/launches.js"
-    ],
-    "/rockets": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/pages/rockets.js"
     ]
   },
   "ampFirstPages": []
